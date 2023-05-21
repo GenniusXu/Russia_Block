@@ -66,9 +66,12 @@
     <ClCompile Include="printLetter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="help.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+=======
+>>>>>>> 3ca3518a029e0a3f2fe501d2a8a7a6b3893454f6
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="interface.h">
@@ -113,8 +116,11 @@
     <ClInclude Include="printLetter.h">
       <Filter>头文件</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="help.h">
       <Filter>头文件</Filter>
     </ClInclude>
+=======
+>>>>>>> 3ca3518a029e0a3f2fe501d2a8a7a6b3893454f6
   </ItemGroup>
 </Project>

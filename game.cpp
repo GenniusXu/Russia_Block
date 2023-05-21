@@ -8,7 +8,10 @@ void game()
 	int type2 = 1;
 	while (1)
 	{
+<<<<<<< HEAD
 		updateMap();
+=======
+>>>>>>> 3ca3518a029e0a3f2fe501d2a8a7a6b3893454f6
 		clearLine();
 		updateInformation();
 		//printMapInfo();//打印map数组的值，用于调试bug
@@ -39,7 +42,10 @@ void game()
 		}
 		//......(每加一种类型的方块，都在这里添加一个else if就行)
 
+<<<<<<< HEAD
 		int tempSpeed = speed;//保存一下默认速度，用于加速后恢复初始速度
+=======
+>>>>>>> 3ca3518a029e0a3f2fe501d2a8a7a6b3893454f6
 		//只要还能下落，就一直下落，并能通过键盘操纵左右移动
 		while (!b->reachEnd())
 		{
@@ -68,6 +74,7 @@ void game()
 					setpos(playingArea_width * 2 + 10, 2);
 					cout << "                                      ";//清除暂停提示信息
 					break;
+<<<<<<< HEAD
 				case 's':
 				case 80:
 					speed = 30;
@@ -81,6 +88,8 @@ void game()
 					mainMenu();
 					return;
 					break;
+=======
+>>>>>>> 3ca3518a029e0a3f2fe501d2a8a7a6b3893454f6
 				default:
 					break;
 				}
@@ -88,6 +97,9 @@ void game()
 		}
 		//此次方块下落已完成，回收堆区对象
 		delete b;
+<<<<<<< HEAD
 		speed = tempSpeed;
+=======
+>>>>>>> 3ca3518a029e0a3f2fe501d2a8a7a6b3893454f6
 	}
 }

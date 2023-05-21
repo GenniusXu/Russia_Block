@@ -10,6 +10,10 @@
 #include"Block_Z.h"
 #include"testInformation.h"
 #include<random>
+<<<<<<< HEAD
+=======
+#include"game.h"
+>>>>>>> 3ca3518a029e0a3f2fe501d2a8a7a6b3893454f6
 #include"mainMenu.h"
 using namespace std;
 

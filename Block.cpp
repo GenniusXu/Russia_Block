@@ -160,23 +160,20 @@ void Block::moveRight()
 //每次消掉了一行，都要重新根据map记录的值来更新方块的位置
 void updateMap()
 {
-	//测试------------------------------------
-	setpos(2, 3);
-	cout << "调用了update";//有问题，没走到
-	//测试------------------------------------
-	for (int i = 0; i < map.size(); i++)
+	for (int i = 0; i < map.size() - 1; i++)
 	{
-		for (int j = 0; j < map[i].size() - 2; j += 2)
+		for (int j = 2; j < map[i].size() - 2; j += 2)
 		{
 			if (map[i][j] != 0)
 			{
-				setpos(i, j);
+				setpos(j,i);
 				setColorAttr(map[i][j]);
 				cout << "■";
 				setColorAttr(37);
 			}
 			else
 			{
+				setpos(j, i);
 				cout << "  ";
 			}
 		}
@@ -186,33 +183,29 @@ void updateMap()
 //当一行填满，自动消掉一行，并让上方方块下落一行
 void clearLine()
 {
-	for (int i = 0; i < map.size(); i++)
+	for (int i = 0; i < map.size() - 1; i++)
 	{
-		bool fullLine = true;//记录是否满一行的变量
-		for (int j = 0; j < map[i].size() - 2; j+=2)
+		int count = 0;
+		for (int j = 2; j < map[i].size() - 2; j += 2)
 		{
-			if (map[i][j] == 0)
+			if (map[i][j] != 0)
 			{
-				//只要一行里有一个是0，那就没满
-				fullLine = false;
+				count++;
 			}
 		}
 		//有一行满了，就要清除这一行，并把这行上面的方块下移一行，然后updateLine（更新图像）
-		if (fullLine == true)
+		if (count == playingArea_width - 2)
 		{
-			//测试-----------------------------------
-			setpos(2, 4);
-			cout << "测试信息，走到了fullLine==true";//有问题，没走到
-			//测试----------------------------------------
 			for (int k = i; k >= 1; k--)
 			{
-				for (int m = 0; m < map[k].size(); m += 2)
+				for (int m = 2; m < map[k].size() - 2; m += 2)
 				{
 					map[k][m] = map[k - 1][m];
 				}
 			}
 			updateMap();
 		}
+		
 	}
 }
 

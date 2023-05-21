@@ -12,4 +12,5 @@ extern int highestScore = 0;
 
 extern int speed = 10;//方块下落速度（秒/格）
 
-vector<vector<int> >map(playingArea_height, vector<int>(playingArea_width * 2, 0));//二维数组，数组下标对应棋盘坐标，一格就是一格
+//二维数组，数组下标对应棋盘坐标，一格就是一格,而且包括边框也算在map里面
+vector<vector<int> >map(playingArea_height, vector<int>(playingArea_width * 2, 0));

@@ -22,7 +22,9 @@ void game()
 		clearLine();
 		printMapInfo();//打印map数组的值，用于调试bug
 		int type = type2;
-		type2 = 1 + rand() % 5;
+		//先不随机，让每次都下落L型方块，方便测试，之后再调成随机的-------------------------记得改回来
+		//type2 = 1 + rand() % 5;
+		//先指定每次都下落L型方块，方便测试，之后再调成随机的-------------------------记得改回来
 		tellNextBlock(type2);
 		if (type == 1)
 		{

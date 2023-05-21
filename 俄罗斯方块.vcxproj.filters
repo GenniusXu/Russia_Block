@@ -45,6 +45,30 @@
     <ClCompile Include="Block_T.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mainMenu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testInformation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="printLetter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="help.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="interface.h">
@@ -75,6 +99,21 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="testInformation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mainMenu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="printLetter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="help.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

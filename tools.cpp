@@ -329,3 +329,4 @@ void DisableMaximizeAndMove()
     SetWindowLongPtr(consoleWindow, GWL_STYLE, style);
     SetWindowPos(consoleWindow, NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_FRAMECHANGED);
 }
+

@@ -128,23 +128,34 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="Block_I.cpp" />
     <ClCompile Include="Block_L.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Block_Square.cpp" />
+    <ClCompile Include="mainMenu.cpp" />
+    <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Mouse.h" />
+    <ClCompile Include="Option.cpp" />
+    <ClCompile Include="printLetter.cpp" />
+    <ClCompile Include="testInformation.cpp" />
     <ClCompile Include="tools.cpp" />
     <ClCompile Include="Block_T.cpp" />
     <ClCompile Include="Block_Z.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="interface.h" />
     <ClInclude Include="Block_I.h" />
     <ClInclude Include="Block_L.h" />
     <ClInclude Include="Block_Square.h" />
+    <ClInclude Include="mainMenu.h" />
+    <ClInclude Include="Option.h" />
+    <ClInclude Include="printLetter.h" />
     <ClInclude Include="testInformation.h" />
     <ClInclude Include="tools.h" />
     <ClInclude Include="Block_T.h" />

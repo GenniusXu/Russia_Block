@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include"block.h"
 class Block_L :public Block
 {

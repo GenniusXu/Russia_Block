@@ -11,7 +11,7 @@
 #include"Block_Z.h"
 #include"testInformation.h"
 #include<random>
-#include"game.h"
+#include"mainMenu.h"
 using namespace std;
 
 //½øÈëÓÎÏ·

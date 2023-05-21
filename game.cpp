@@ -8,6 +8,7 @@ void game()
 	int type2 = 1;
 	while (1)
 	{
+		updateMap();
 		clearLine();
 		updateInformation();
 		//printMapInfo();//打印map数组的值，用于调试bug
@@ -74,6 +75,11 @@ void game()
 				case 'w':
 				case 72:
 					speed = tempSpeed;
+					break;
+				case 'q':
+					system("cls");
+					mainMenu();
+					return;
 					break;
 				default:
 					break;

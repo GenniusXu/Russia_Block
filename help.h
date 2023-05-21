@@ -4,7 +4,7 @@
 #include"tools.h"
 #include"Mouse.h"
 #include"Option.h"
-#include"mainMenu.h"
+
 using namespace std;
 
 //创建在Help窗口的按键

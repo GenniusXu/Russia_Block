@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include"Tools.h"
 #include"Mouse.h"
 #include"globals.h"

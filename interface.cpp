@@ -1,5 +1,4 @@
 ﻿#include"interface.h"
-using namespace std;
 
 //画整个游戏界面
 void drawInterface()

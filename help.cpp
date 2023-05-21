@@ -42,7 +42,7 @@ void help()
 			{
 				options.clear();
 				clearScreen();
-				mainMenu();
+				return;
 				break;
 			}
 		}

@@ -15,3 +15,5 @@ extern int highestScore;
 extern int speed;
 
 extern vector<vector<int>>map;
+
+extern int warnningLine_height;

@@ -193,7 +193,7 @@ void clearLine()
 				count++;
 			}
 		}
-		//有一行满了，就要清除这一行，并把这行上面的方块下移一行，然后updateLine（更新图像）
+		//有一行满了，就要清除这一行，并把这行上面的方块下移一行，然后updateLine（更新图像），并且分数score += 10
 		if (count == playingArea_width - 2)
 		{
 			for (int k = i; k >= 1; k--)
@@ -204,6 +204,7 @@ void clearLine()
 				}
 			}
 			updateMap();
+			score += 10;
 		}
 		
 	}

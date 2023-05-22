@@ -4,6 +4,7 @@ Block_T::Block_T()
 {
 	color = 34;//黄色
 	blockWidth = 3;
+	state = 4;
 	//只是为了更直观的看，所以整一个tempShape，然后再将tempShape复制到shape中
 	int tempShape[4][4] =
 	{
@@ -33,7 +34,6 @@ void Block_T::rotate()
 {
 	erase();
 	//state 从1到4分别对应四个摆放方向
-	static int state = 4;
 	if (state == 1)
 	{
 		int tempShape[4][4] =

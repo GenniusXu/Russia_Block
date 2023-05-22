@@ -6,6 +6,7 @@
 #include"game.h"
 #include"printLetter.h"
 #include"help.h"
+#include"setting.h"
 
 //生成主菜单界面的按钮
 void createMenuOptions();

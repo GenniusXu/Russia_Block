@@ -52,6 +52,10 @@ void updateInformation()
 	cout << "                           ";//清除原来的数据
 	setpos(playingArea_width * 2 + 20, 7);
 	cout << score;
+	if (score > highestScore)
+	{
+		highestScore = score;
+	}
 
 	//更新历史最高分
 	setpos(playingArea_width * 2 + 22, 9);

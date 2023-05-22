@@ -1,8 +1,5 @@
 #pragma once
-<<<<<<< HEAD
-=======
 #pragma once
->>>>>>> 3ca3518a029e0a3f2fe501d2a8a7a6b3893454f6
 #include"Tools.h"
 #include"Mouse.h"
 #include"globals.h"

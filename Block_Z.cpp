@@ -42,6 +42,12 @@ void Block_Z::rotate()
 			{1,1,1,0},
 			{0,1,1,1}
 		};
+		//如果旋转后右边出界，则要将方块强行左移到恰好不出界的位置
+		//注意一格方块是占两个单位pos
+		if (pos.X + 8 >= playingArea_width * 2)
+		{
+			pos.X = (playingArea_width - 5) * 2;
+		}
 		for (int i = 0; i < 4; i++)
 		{
 			for (int j = 0; j < 4; j++)
@@ -78,6 +84,12 @@ void Block_Z::rotate()
 			{0,0,0,0},
 			{0,0,0,0}
 		};
+		//如果旋转后右边出界，则要将方块强行左移到恰好不出界的位置
+		//注意一格方块是占两个单位pos
+		if (pos.X + 8 >= playingArea_width * 2)
+		{
+			pos.X = (playingArea_width - 5) * 2;
+		}
 		for (int i = 0; i < 4; i++)
 		{
 			for (int j = 0; j < 4; j++)

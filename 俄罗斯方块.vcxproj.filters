@@ -58,6 +58,12 @@
     <ClCompile Include="setting.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LoginAndRegister.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="saveAndRead.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h">
@@ -106,6 +112,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="setting.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginAndRegister.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="saveAndRead.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

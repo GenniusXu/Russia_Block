@@ -9,6 +9,7 @@ extern int informationArea_width;
 extern int informationArea_height;
 
 extern string player;
+extern string password;
 extern int score;
 extern int highestScore;
 

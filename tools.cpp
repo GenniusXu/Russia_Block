@@ -330,3 +330,100 @@ void DisableMaximizeAndMove()
     SetWindowPos(consoleWindow, NULL, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOZORDER | SWP_FRAMECHANGED);
 }
 
+
+
+HWND g_hwnd;
+HWND g_hDataTextBox;
+string g_hData;
+
+// 回调函数，处理窗口消息
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+    if (uMsg == WM_CLOSE)
+    {
+        DestroyWindow(hwnd);
+        return 0;
+    }
+    else if (uMsg == WM_DESTROY)
+    {
+        PostQuitMessage(0);
+        return 0;
+    }
+    else if (uMsg == WM_COMMAND)
+    {
+        if (LOWORD(wParam) == IDOK)
+        {
+            char buffer[256];
+            GetWindowTextA(g_hDataTextBox, buffer, sizeof(buffer));
+            g_hData = buffer;
+            SendMessage(hwnd, WM_CLOSE, 0, 0);
+        }
+    }
+
+    return DefWindowProc(hwnd, uMsg, wParam, lParam);
+}
+
+// 创建窗口并获取用户输入
+string GetDataFromWindow(string tips)
+{
+    // 注册窗口类
+    WNDCLASSA wc = { 0 };
+    wc.lpfnWndProc = WindowProc;
+    wc.hInstance = GetModuleHandle(NULL);
+    wc.lpszClassName = "InputWindowClass";
+    RegisterClassA(&wc);
+
+    // 创建窗口
+    g_hwnd = CreateWindowExA(
+        0,
+        wc.lpszClassName,
+        LPCSTR(tips.c_str()),
+        WS_OVERLAPPEDWINDOW,
+        CW_USEDEFAULT, CW_USEDEFAULT,
+        400, 200,
+        NULL, NULL,
+        GetModuleHandle(NULL),
+        NULL);
+
+    // 创建文本框
+    g_hDataTextBox = CreateWindowA(
+        "EDIT",
+        "",
+        WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL,
+        10, 50, 300, 20,
+        g_hwnd, NULL,
+        NULL, NULL);
+
+    // 创建确定按钮
+    CreateWindowA(
+        "BUTTON",
+        "确定",
+        WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON,
+        320, 50, 70, 20,
+        g_hwnd, (HMENU)IDOK,
+        GetModuleHandle(NULL), NULL);
+
+    // 显示窗口
+    ShowWindow(g_hwnd, SW_SHOWDEFAULT);
+    UpdateWindow(g_hwnd);
+
+    // 消息循环
+    MSG msg;
+    while (GetMessage(&msg, NULL, 0, 0))
+    {
+        TranslateMessage(&msg);
+        DispatchMessage(&msg);
+    }
+
+    // 销毁窗口类
+    UnregisterClassA(wc.lpszClassName, GetModuleHandle(NULL));
+
+    return g_hData;
+}
+
+//弹出提示信息窗口
+void ShowMessageBox(const string& msg)
+{
+    HWND hwnd = GetConsoleWindow(); // 获取控制台窗口句柄
+    MessageBoxA(hwnd, msg.c_str(), "提示", MB_OK | MB_ICONINFORMATION);
+}

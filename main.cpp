@@ -11,6 +11,7 @@
 #include"testInformation.h"
 #include<random>
 #include"mainMenu.h"
+#include"LoginAndRegister.h"
 using namespace std;
 
 
@@ -22,7 +23,7 @@ int main()
 	HideCursor();
 	while (1)
 	{
-		mainMenu();
+		LoginAndRegister();
 	}
 	return 0;
 }

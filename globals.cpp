@@ -6,7 +6,8 @@ extern int playingArea_height = 37;
 extern int informationArea_width = 20;
 extern int informationArea_height = 37;
 
-extern string player = "Íæ¼Ò1";
+string player = "Íæ¼Ò1";
+string password = "123456";
 extern int score = 0;
 extern int highestScore = 0;
 

@@ -98,3 +98,12 @@ void HideConsoleWindowBorders();
 
 //禁止移动窗口位置(好像没什么用)
 void DisableMaximizeAndMove();
+
+// 回调函数，处理窗口消息
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
+// 创建窗口并获取用户输入
+string GetDataFromWindow(string tips);
+
+//弹出提示信息窗口
+void ShowMessageBox(const string& msg);

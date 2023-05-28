@@ -14,3 +14,27 @@ void printMapInfo()
 		}
 	}
 }
+
+void printFileInfo(string player_arg)
+{
+	PlayerInfo info;
+	ifstream f;
+	f.open("PlayerInfoRecords_" + string(player_arg) + ".dat", ios::in | ios::binary);
+	if (!f.is_open())
+	{
+		cerr << "文件打开失败！";
+		return;
+	}
+	f.read((char*)&info, sizeof(info));
+
+	// 将PlayerInfo中的数据全部赋值给全局变量
+	player = info.playerName;
+	password = info.password;
+	highestScore = info.highestScore;
+	playingArea_height = info.height;
+	playingArea_width = info.width;
+	//map = info.map;	
+
+	cout << player << endl << password << endl << highestScore << endl << playingArea_height << endl << playingArea_width << endl;
+	f.close();
+}

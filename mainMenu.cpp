@@ -5,10 +5,11 @@ void createMenuOptions()
     short menu_option_left_limit = getConsoleWidth() / 2 - 8;
     short menu_option_top_limit = getConsoleHeight() / 2;
     //每个控件在y方向占3格，所以RECT的第二个和第四个参数每加一行就加3就行
-    options.push_back(Option("开始游戏", { menu_option_left_limit,menu_option_top_limit, menu_option_left_limit + 18,menu_option_top_limit + 2 }));
-    options.push_back(Option("游戏设置", { menu_option_left_limit,menu_option_top_limit + 3, menu_option_left_limit + 18,menu_option_top_limit + 5 }));
-    options.push_back(Option("游戏帮助", { menu_option_left_limit,menu_option_top_limit + 6, menu_option_left_limit + 18,menu_option_top_limit + 8 }));
-    options.push_back(Option("退出", { menu_option_left_limit,menu_option_top_limit + 9, menu_option_left_limit + 18,menu_option_top_limit + 11 }));
+    options.push_back(Option("新的游戏", { menu_option_left_limit,menu_option_top_limit, menu_option_left_limit + 18,menu_option_top_limit + 2 }));
+    options.push_back(Option("继续游戏", { menu_option_left_limit,menu_option_top_limit + 3, menu_option_left_limit + 18,menu_option_top_limit + 5 }));
+    options.push_back(Option("游戏设置", { menu_option_left_limit,menu_option_top_limit + 6, menu_option_left_limit + 18,menu_option_top_limit + 8 }));
+    options.push_back(Option("游戏帮助", { menu_option_left_limit,menu_option_top_limit + 9, menu_option_left_limit + 18,menu_option_top_limit + 11 }));
+    options.push_back(Option("退出", { menu_option_left_limit,menu_option_top_limit + 12, menu_option_left_limit + 18,menu_option_top_limit + 14 }));
 }
 
 //打印Tetris(俄罗斯方块)大标题
@@ -38,7 +39,15 @@ void mainMenu()
         string opt = chooseOption();
         if (opt != "unknown")
         {
-            if (opt == "开始游戏")
+            if (opt == "新的游戏")
+            {
+                options.clear();
+                clearScreen();
+                resetMap();
+                game();
+                break;
+            }
+            if (opt == "继续游戏")
             {
                 options.clear();
                 clearScreen();

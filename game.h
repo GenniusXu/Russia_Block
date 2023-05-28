@@ -12,6 +12,7 @@
 #include"testInformation.h"
 #include<random>
 #include"mainMenu.h"
+#include"saveAndRead.h"
 using namespace std;
 
 //判断游戏是否结束，如果结束返回true

@@ -5,7 +5,11 @@
 #include<iostream>
 #include"tools.h"
 #include<iomanip>
+#include"saveAndRead.h"
 using namespace std;
 
 //输出map每个元素的值
 void printMapInfo();
+
+//打印二进制文件中的数据
+void printFileInfo(string player_arg);

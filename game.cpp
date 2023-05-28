@@ -119,6 +119,7 @@ void game()
 					break;
 				case 'q':
 					system("cls");
+					savePlayerInfo();
 					mainMenu();
 					return;
 				default:

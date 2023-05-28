@@ -19,7 +19,11 @@ public:
 	int highestScore;//历史最高分
 	int height;//地图高度
 	int width;//地图宽度
-	vector<vector<int> >map;//地图二维数组
+	int map[37][60];//地图二维数组
+	//注意！！！！
+	//注意！！！！
+	//注意！！！！
+	//map必须为大小确定的二维数组，不能是vector，否则读取二进制文件时容易造成访问权限冲突（因为你的sizeof(PlayerInfo)不确定）
 };
 
 

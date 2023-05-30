@@ -23,7 +23,7 @@ void createPlayerInfo(string player, string password)
 	f.open("PlayerInfoRecords_" + player + ".dat", ios::out | ios::binary);
 	if (!f.is_open())
 	{
-		cerr << "文件打开失败！";
+		ShowMessageBox("账号创建失败！");
 		return;
 	}
 	f.write((const char*)&info, sizeof(info));
@@ -53,7 +53,7 @@ void savePlayerInfo()
 	f.open("PlayerInfoRecords_" + player + ".dat", ios::out | ios::binary);
 	if (!f.is_open())
 	{
-		cerr << "文件打开失败！";
+		ShowMessageBox("游戏进度保存失败！");
 		return;
 	}
 	f.write((const char*)&info, sizeof(info));
@@ -69,7 +69,7 @@ bool readPlayerInfo(string player_arg, string password_arg)
 	f.open("PlayerInfoRecords_" + string(player_arg) + ".dat", ios::in | ios::binary);
 	if (!f.is_open())
 	{
-		cerr << "文件打开失败！";
+		ShowMessageBox("用户不存在，登录失败！");
 		return false;
 	}
 	f.read((char*)&info, sizeof(info));

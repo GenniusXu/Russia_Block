@@ -428,7 +428,7 @@ void ShowMessageBox(const string& msg)
     MessageBoxA(hwnd, msg.c_str(), "提示", MB_OK | MB_ICONINFORMATION);
 }
 
-//播放指定路径的背景音乐
+//（循环）（后台）（非阻塞）播放指定路径的背景音乐
 void PlayBackgroundMusic(string path)
 {
     //注意，这里的backgroundMusic和backgroundMusicBuffer都是全局变量，否则没法用另一个函数停止播放
@@ -447,4 +447,18 @@ void stopBackgroundMusic()
 {
     //backgroundMusic是全局变量
     backgroundMusic.stop();
+}
+
+//（单次）（后台）（非阻塞）播放指定路径的消行音效
+void PlayClearSoundEffect(string path)
+{
+    //注意，这里的backgroundMusic和backgroundMusicBuffer都是全局变量，否则没法用另一个函数停止播放
+    if (!clearSoundEffectBuffer.loadFromFile(path))
+    {
+        std::cerr << "无法加载音乐文件：" << path << std::endl;
+        return;
+    }
+    clearSoundEffect.setBuffer(clearSoundEffectBuffer);
+    clearSoundEffect.setLoop(false);
+    clearSoundEffect.play();
 }

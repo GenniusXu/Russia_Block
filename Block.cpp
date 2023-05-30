@@ -203,6 +203,10 @@ void clearLine()
 					map[k][m] = map[k - 1][m];
 				}
 			}
+			if (clearSoundEffect_isOpen)
+			{
+				PlayClearSoundEffect(clearSoundEffectPath);
+			}
 			updateMap();
 			score += 10;
 		}

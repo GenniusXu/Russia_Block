@@ -111,8 +111,11 @@ string GetDataFromWindow(string tips);
 void ShowMessageBox(const string& msg);
 
 
-//播放指定路径的背景音乐
+//（循环）（后台）（非阻塞）播放指定路径的背景音乐
 void PlayBackgroundMusic(string path);
 
 //停止播放背景音乐
 void stopBackgroundMusic();
+
+//（单次）（后台）（非阻塞）播放指定路径的消行音效
+void PlayClearSoundEffect(string path);

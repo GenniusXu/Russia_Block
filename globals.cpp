@@ -17,3 +17,10 @@ extern int speed = 3;//方块下落速度（秒/格）
 vector<vector<int> >map(playingArea_height, vector<int>(playingArea_width * 2, 0));
 
 extern int warnningLine_height = 5;
+
+
+sf::Sound backgroundMusic;//背景音乐对象
+sf::SoundBuffer backgroundMusicBuffer;//背景音乐缓冲
+
+bool backGroundMusic_isOpen = true;//记录背景音乐是否打开的变量
+string backgroundMusicPath = "背景音乐.wav";//背景音乐文件路径

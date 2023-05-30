@@ -19,8 +19,8 @@ void createSettingOptions()
 
     setpos(setting_option_left_limit2 + 3, setting_option_top_limit2 - 2);
     cout << "其他设置更改";
-    options.push_back(Option("背景音乐", { setting_option_left_limit2,setting_option_top_limit, setting_option_left_limit2 + 18,setting_option_top_limit}));
-    options.push_back(Option("方块下落速度", { setting_option_left_limit2,setting_option_top_limit + 3, setting_option_left_limit2 + 18,setting_option_top_limit + 2 }));
+    options.push_back(Option("背景音乐", { setting_option_left_limit2,setting_option_top_limit, setting_option_left_limit2 + 18,setting_option_top_limit +  2}));
+    options.push_back(Option("方块下落速度", { setting_option_left_limit2,setting_option_top_limit + 3, setting_option_left_limit2 + 18,setting_option_top_limit + 5 }));
     
     options.push_back(Option("返回主菜单", { 2,30, 20,32 }));
     options.push_back(Option("恢复默认设置", { 22,30, 40,32 }));
@@ -59,7 +59,8 @@ void setting()
             }
             else if (opt == "背景音乐")
             {
-                
+                //开就变关，关就变开
+                backGroundMusic_isOpen = !backGroundMusic_isOpen;
             }
             else if (opt == "方块下落速度")
             {
@@ -73,6 +74,7 @@ void setting()
             {
                 options.clear();
                 clearScreen();
+                mainMenu();
                 break;
             }
         }

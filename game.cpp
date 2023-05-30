@@ -41,6 +41,10 @@ void drawWarningLine()
 
 void game()
 {
+	if (backGroundMusic_isOpen)
+	{
+		PlayBackgroundMusic(backgroundMusicPath);
+	}
 	drawInterface();//画游戏区方框，在信息区打印各种信息名称
 	Block* b = NULL;//指向当前操作方块的指针
 	srand(int(time(0)));
@@ -120,6 +124,7 @@ void game()
 				case 'q':
 					system("cls");
 					savePlayerInfo();
+					stopBackgroundMusic();
 					mainMenu();
 					return;
 				default:
@@ -139,5 +144,6 @@ void game()
 	Sleep(3000);
 	resetMap();//一定要，不然再次进入游戏时还没开始就结束了
 	clearScreen();
+	stopBackgroundMusic();
 	mainMenu();
 }

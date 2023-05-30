@@ -12,6 +12,8 @@
 #include <codecvt>
 #include<cstdlib>
 #include<string>
+#include<SFML/Audio.hpp>
+#include"globals.h"
 
 using namespace std;
 #ifndef KEY_DOWN
@@ -107,3 +109,10 @@ string GetDataFromWindow(string tips);
 
 //弹出提示信息窗口
 void ShowMessageBox(const string& msg);
+
+
+//播放指定路径的背景音乐
+void PlayBackgroundMusic(string path);
+
+//停止播放背景音乐
+void stopBackgroundMusic();

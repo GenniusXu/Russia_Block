@@ -427,3 +427,24 @@ void ShowMessageBox(const string& msg)
     HWND hwnd = GetConsoleWindow(); // 获取控制台窗口句柄
     MessageBoxA(hwnd, msg.c_str(), "提示", MB_OK | MB_ICONINFORMATION);
 }
+
+//播放指定路径的背景音乐
+void PlayBackgroundMusic(string path)
+{
+    //注意，这里的backgroundMusic和backgroundMusicBuffer都是全局变量，否则没法用另一个函数停止播放
+    if (!backgroundMusicBuffer.loadFromFile(path))
+    {
+        std::cerr << "无法加载音乐文件：" << path << std::endl;
+        return;
+    }
+    backgroundMusic.setBuffer(backgroundMusicBuffer);
+    backgroundMusic.setLoop(true);
+    backgroundMusic.play();
+}
+
+//停止播放背景音乐
+void stopBackgroundMusic()
+{
+    //backgroundMusic是全局变量
+    backgroundMusic.stop();
+}

@@ -8,11 +8,11 @@ void createPlayerInfo(string player, string password)
 	strcpy_s(info.playerName, player.c_str());
 	strcpy_s(info.password, password.c_str());
 	info.highestScore = 0;
-	info.height = 37;
-	info.width = 20;
-	for (int i = 0; i < 37; i++)
+	info.height = playingArea_height;
+	info.width = playingArea_width;
+	for (int i = 0; i < playingArea_height; i++)
 	{
-		for (int j = 0; j < 60; j++)
+		for (int j = 0; j < playingArea_width * 2; j++)
 		{
 			info.map[i][j] = 0;
 		}

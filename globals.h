@@ -22,7 +22,15 @@ extern vector<vector<int>>map;
 
 //------------------------------------以下是有关游戏参数、游戏按键的全局变量------------------------------
 
-extern int speed;
+extern int speed;//方块下落速度
+extern char key_for_up;//代替↑的按键
+extern char key_for_down;//代替↓的按键
+extern char key_for_left; //代替←的按键
+extern char key_for_right;//代替→的按键
+extern char key_for_rotate;//代替旋转j的按键
+extern char key_for_pause;//代替暂停p的按键
+extern char key_for_quit;//代替返回主菜单q的按键
+
 
 
 //------------------------------------以下是有关音效的全局变量------------------------------

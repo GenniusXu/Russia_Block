@@ -20,6 +20,13 @@ vector<vector<int> >map(playingArea_height, vector<int>(playingArea_width * 2, 0
 //------------------------------------以下是有关游戏参数、游戏按键的全局变量------------------------------
 
 int speed = 3;//方块下落速度（秒/格）
+char key_for_up = 'w';//代替↑的按键
+char key_for_down = 's';//代替↓的按键
+char key_for_left = 'a'; //代替←的按键
+char key_for_right = 'd';//代替→的按键
+char key_for_rotate = 'j';//代替旋转j的按键
+char key_for_pause = 'p';//代替暂停p的按键
+char key_for_quit = 'q';//代替返回主菜单q的按键
 
 
 //------------------------------------以下是有关音效的全局变量------------------------------

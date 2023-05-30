@@ -39,23 +39,48 @@ void setting()
         {
             if (opt == "暂停")
             {
-                
+                string s = GetDataFromWindow("请输入新的按键");
+                if (s != "\0")
+                {
+                    //如果用户输入了一长串，则只取第一个字符
+                    key_for_pause = s[0];
+                }
             }
             else if (opt == "左移")
             {
-                
+                string s = GetDataFromWindow("请输入新的按键");
+                if (s != "\0")
+                {
+                    //如果用户输入了一长串，则只取第一个字符
+                    key_for_left = s[0];
+                }
             }
             else if (opt == "右移")
             {
-                
+                string s = GetDataFromWindow("请输入新的按键");
+                if (s != "\0")
+                {
+                    //如果用户输入了一长串，则只取第一个字符
+                    key_for_right = s[0];
+                }
             }
             else if (opt == "加速")
             {
-                
+                string s = GetDataFromWindow("请输入新的按键");
+                if (s != "\0")
+                {
+                    //如果用户输入了一长串，则只取第一个字符
+                    key_for_down = s[0];
+                }
             }
             else if (opt == "恢复")
             {
-                
+                string s = GetDataFromWindow("请输入新的按键");
+                if (s != "\0")
+                {
+                    //如果用户输入了一长串，则只取第一个字符
+                    key_for_up = s[0];
+                }
             }
             else if (opt == "背景音乐")
             {
@@ -64,11 +89,22 @@ void setting()
             }
             else if (opt == "方块下落速度")
             {
-                
+                string s = GetDataFromWindow("请输入新的方块下落速度");
+                if (s != "\0")
+                {
+                    //将字符串转成int
+                    key_for_up = stoi(s);
+                }
             }
             else if (opt == "恢复默认设置")
             {
-                
+                key_for_up = 'w';//代替↑的按键
+                key_for_down = 's';//代替↓的按键
+                key_for_left = 'a'; //代替←的按键
+                key_for_right = 'd';//代替→的按键
+                key_for_rotate = 'j';//代替旋转j的按键
+                key_for_pause = 'p';//代替暂停p的按键
+                key_for_quit = 'q';//代替返回主菜单q的按键
             }
             else if (opt == "返回主菜单")
             {

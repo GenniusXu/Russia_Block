@@ -92,43 +92,43 @@ void game()
 			if (_kbhit())
 			{
 				char ch = _getch();
-				switch (ch)
+				if (ch == 75 || ch == key_for_left)
 				{
-					//72上 80下 75左 77右
-				case 'a':
-				case 75:
 					b->moveLeft();
-					break;
-				case 'd':
-				case 77:
+				}
+				else if (ch == 77 || ch == key_for_right)
+				{
 					b->moveRight();
-					break;
-				case 'j':
+				}
+				else if (ch == 80 || ch == key_for_down)
+				{
+					speed = 30;
+				}
+				else if (ch == 72 || ch == key_for_up)
+				{
+					speed = tempSpeed;
+				}
+				else if (ch == key_for_rotate)
+				{
 					b->rotate();
-					break;
-				case 'p':
+				}
+				else if (ch == key_for_pause)
+				{
+					stopBackgroundMusic();
 					setpos(playingArea_width * 2 + 10, 2);
 					cout << "游戏已暂停，";
 					system("pause");//请按任意键继续在这里
 					setpos(playingArea_width * 2 + 10, 2);
 					cout << "                                      ";//清除暂停提示信息
-					break;
-				case 's':
-				case 80:
-					speed = 30;
-					break;
-				case 'w':
-				case 72:
-					speed = tempSpeed;
-					break;
-				case 'q':
+					PlayBackgroundMusic(backgroundMusicPath);
+				}
+				else if (ch == key_for_quit)
+				{
 					system("cls");
 					savePlayerInfo();
 					stopBackgroundMusic();
 					mainMenu();
 					return;
-				default:
-					break;
 				}
 			}
 		}

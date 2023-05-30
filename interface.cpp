@@ -43,6 +43,24 @@ void drawInformationArea()
 	cout << "历史最高分：";
 	setpos(playingArea_width * 2 + 10, 11);
 	cout<<"下一个方块：";
+
+	int offset = 50;
+	setpos(playingArea_width * 2 + offset, 5);
+	cout << "游戏操作：";
+	setpos(playingArea_width * 2 + offset, 6);
+	cout << "方块左移：←或" << key_for_left;
+	setpos(playingArea_width * 2 + offset, 7);
+	cout << "方块右移：→或" << key_for_right;
+	setpos(playingArea_width * 2 + offset, 8);
+	cout << "方块旋转：" << key_for_rotate;
+	setpos(playingArea_width * 2 + offset, 9);
+	cout << "加速下落：↓或" << key_for_down;
+	setpos(playingArea_width * 2 + offset, 10);
+	cout << "恢复正常速度：↑或" << key_for_up;
+	setpos(playingArea_width * 2 + offset, 11);
+	cout << "暂停：" << key_for_pause;
+	setpos(playingArea_width * 2 + offset, 12);
+	cout << "返回主菜单：" << key_for_quit;
 }
 
 void updateInformation()

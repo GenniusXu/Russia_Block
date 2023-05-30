@@ -93,7 +93,7 @@ void setting()
                 if (s != "\0")
                 {
                     //将字符串转成int
-                    key_for_up = stoi(s);
+                    speed = stoi(s);
                 }
             }
             else if (opt == "恢复默认设置")

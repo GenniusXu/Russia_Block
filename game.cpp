@@ -27,7 +27,6 @@ void resetMap()
 }
 
 //画警示线
-//不知道为什么没用
 void drawWarningLine()
 {
 	setpos(2, warnningLine_height);

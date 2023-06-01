@@ -332,8 +332,10 @@ void DisableMaximizeAndMove()
 
 
 
+
 HWND g_hwnd;
 HWND g_hDataTextBox;
+HWND g_hPromptText;
 string g_hData;
 
 // 回调函数，处理窗口消息
@@ -363,21 +365,21 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
 
-// 创建窗口并获取用户输入
-string GetDataFromWindow(string tips)
+// 创建窗口并获取用户输入(注意，参数是wstring类型，所以要传  L"xxx"  这样，而不能只是  "xxx" )
+string GetDataFromWindow(wstring tips)
 {
-    // 注册窗口类
-    WNDCLASSA wc = { 0 };
+    //注册窗口类
+    WNDCLASSW wc = { 0 };
     wc.lpfnWndProc = WindowProc;
     wc.hInstance = GetModuleHandle(NULL);
-    wc.lpszClassName = "InputWindowClass";
-    RegisterClassA(&wc);
+    wc.lpszClassName = L"InputWindowClass";
+    RegisterClassW(&wc);
 
     // 创建窗口
-    g_hwnd = CreateWindowExA(
+    g_hwnd = CreateWindowExW(
         0,
         wc.lpszClassName,
-        LPCSTR(tips.c_str()),
+        LPCWSTR(tips.c_str()),
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT,
         400, 200,
@@ -385,12 +387,21 @@ string GetDataFromWindow(string tips)
         GetModuleHandle(NULL),
         NULL);
 
+    //创建静态文本提示信息
+    g_hPromptText = CreateWindowW(
+        L"STATIC",
+        LPCWSTR(tips.c_str()),
+        WS_CHILD | WS_VISIBLE,
+        10, 20, 270, 20,
+        g_hwnd, NULL,
+        NULL, NULL);
+
     // 创建文本框
     g_hDataTextBox = CreateWindowA(
         "EDIT",
         "",
         WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL,
-        10, 50, 300, 20,
+        10, 50, 270, 20,
         g_hwnd, NULL,
         NULL, NULL);
 
@@ -399,7 +410,7 @@ string GetDataFromWindow(string tips)
         "BUTTON",
         "确定",
         WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON,
-        320, 50, 70, 20,
+        290, 50, 70, 20,
         g_hwnd, (HMENU)IDOK,
         GetModuleHandle(NULL), NULL);
 
@@ -416,7 +427,7 @@ string GetDataFromWindow(string tips)
     }
 
     // 销毁窗口类
-    UnregisterClassA(wc.lpszClassName, GetModuleHandle(NULL));
+    UnregisterClassW(wc.lpszClassName, GetModuleHandle(NULL));
 
     return g_hData;
 }

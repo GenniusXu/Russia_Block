@@ -104,8 +104,8 @@ void DisableMaximizeAndMove();
 // 回调函数，处理窗口消息
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-// 创建窗口并获取用户输入
-string GetDataFromWindow(string tips);
+// 创建窗口并获取用户输入(注意，参数是wstring类型，所以要传  L"xxx"  这样，而不能只是  "xxx" )
+string GetDataFromWindow(wstring tips);
 
 //弹出提示信息窗口
 void ShowMessageBox(const string& msg);

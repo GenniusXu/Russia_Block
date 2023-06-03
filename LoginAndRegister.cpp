@@ -33,7 +33,17 @@ void LoginAndRegister()
                 //strcpy_s(player, GetUsernameFromWindow().c_str());
                 //strcpy_s(password, GetPasswordFromWindow().c_str());
                 player = GetDataFromWindow(L"请输入用户名");
+                if (player == "\0")
+                {
+                    ShowMessageBox("用户名不能为空！");
+                    continue;
+                }
                 password = GetDataFromWindow(L"请输入密码");
+                if (password == "\0")
+                {
+                    ShowMessageBox("密码不能为空！");
+                    continue;
+                }
                 createPlayerInfo(player, password);
                 ShowMessageBox("注册成功！");
                 options.clear();
@@ -46,7 +56,17 @@ void LoginAndRegister()
                 //strcpy_s(player, GetUsernameFromWindow().c_str());
                 //strcpy_s(password, GetPasswordFromWindow().c_str());
                 player = GetDataFromWindow(L"请输入用户名");
+                if (player == "\0")
+                {
+                    ShowMessageBox("用户名不能为空！");
+                    continue;
+                }
                 password = GetDataFromWindow(L"请输入密码");
+                if (password == "\0")
+                {
+                    ShowMessageBox("密码不能为空！");
+                    continue;
+                }
                 //读取成功进入游戏菜单界面，读取失败仍停留在当前界面
                 if (readPlayerInfo(player, password))
                 {

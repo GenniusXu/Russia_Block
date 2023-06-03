@@ -2,7 +2,6 @@
 #include<iostream>
 #include"Block.h"
 #include"globals.h"
-#include"interface.h"
 #include"tools.h"
 #include"Block_I.h"
 #include"Block_L.h"
@@ -13,7 +12,18 @@
 #include<random>
 #include"mainMenu.h"
 #include"saveAndRead.h"
+#include<iomanip>
 using namespace std;
+
+void drawInterface();//画整个游戏界面
+
+void drawPlayingArea();//画游戏区
+
+void drawInformationArea();//画信息区
+
+void updateInformation();//更新信息区数据
+
+void tellNextBlock(int type);//在信息区显示下一个方块的形状
 
 //判断游戏是否结束，如果结束返回true
 bool gameOver();

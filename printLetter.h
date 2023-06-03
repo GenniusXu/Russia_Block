@@ -1,6 +1,5 @@
 #pragma once
 #include"Tools.h"
-#include"Interface.h"
 #include"globals.h"
 
 void print_A(int x, int y);

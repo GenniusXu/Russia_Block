@@ -137,7 +137,6 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="help.cpp" />
-    <ClCompile Include="interface.cpp" />
     <ClCompile Include="Block_I.cpp" />
     <ClCompile Include="Block_L.cpp" />
     <ClCompile Include="LoginAndRegister.cpp" />
@@ -160,7 +159,6 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="help.h" />
-    <ClInclude Include="interface.h" />
     <ClInclude Include="Block_I.h" />
     <ClInclude Include="Block_L.h" />
     <ClInclude Include="Block_Square.h" />

@@ -44,7 +44,7 @@ void savePlayerInfo()
 	{
 		for (int j = 0; j < playingArea_width * 2; j++)
 		{
-			info.map[i][j] = map[i][j];
+			info.map[i][j] = map_game[i][j];
 		}
 	}
 
@@ -87,7 +87,7 @@ bool readPlayerInfo(string player_arg, string password_arg)
 		{
 			for (int j = 0; j < playingArea_width * 2; j++)
 			{
-				map[i][j] = info.map[i][j];
+				map_game[i][j] = info.map[i][j];
 			}
 		}
 	}
@@ -100,4 +100,41 @@ bool readPlayerInfo(string player_arg, string password_arg)
 
 	f.close();
 	return true;
+}
+
+//保存排行榜信息
+void saveRankList()
+{
+	ofstream f;
+	f.open("rankListRecord.dat", ios::out);
+	if (!f.is_open())
+	{
+		ShowMessageBox("排行榜数据保存失败！");
+		return;
+	}
+	for (const auto& pair : rankList) 
+	{
+		f << pair.second << " " << pair.first << "\n";
+	}
+	f.close();
+}
+
+//读取排行榜信息
+void readRankList()
+{
+	rankList.clear();//先把现在rankList里面所有的内容清空，再重新从文件中读取，防止重复写入相同的内容
+	ifstream f;
+	f.open("rankListRecord.dat", ios::in);
+	if (!f.is_open())
+	{
+		ShowMessageBox("排行榜数据读取存失败！");
+		return;
+	}
+	int score;
+	string name;
+	while (f >> name >> score)
+	{
+		rankList.insert(make_pair(score, name));
+	}
+	f.close();
 }

@@ -14,6 +14,9 @@ void createMenuOptions();
 //打印Russia Block大标题
 void print_title();
 
+//打印排行榜信息
+void showRankList();
+
 //显示主菜单界面
 void mainMenu();
 

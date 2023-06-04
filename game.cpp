@@ -156,10 +156,10 @@ void tellNextBlock(int type)
 //判断游戏是否结束，如果结束返回true
 bool gameOver()
 {
-	for (int i = 2; i < map[0].size(); i += 2)
+	for (int i = 2; i < map_game[0].size(); i += 2)
 	{
 		//从上往下数第五行有方块，说明已经满了，游戏结束
-		if (map[warnningLine_height][i] != 0)
+		if (map_game[warnningLine_height][i] != 0)
 		{
 			return true;
 		}
@@ -167,14 +167,14 @@ bool gameOver()
 	return false;
 }
 
-//重置map，将它所有元素重置为0
+//重置map_game，将它所有元素重置为0
 void resetMap()
 {
-	for (int i = 0; i < map.size(); i++)
+	for (int i = 0; i < map_game.size(); i++)
 	{
-		for (int j = 0; j < map[i].size(); j++)
+		for (int j = 0; j < map_game[i].size(); j++)
 		{
-			map[i][j] = 0;
+			map_game[i][j] = 0;
 		}
 	}
 }
@@ -207,7 +207,7 @@ void game()
 		//drawWarningLine();//只在这里画的话会被方块擦掉一小段，在下面的while (!b->reachEnd())里面画才能时刻保持警戒线的完整性
 		clearLine();
 		updateInformation();
-		//printMapInfo();//打印map数组的值，用于调试bug
+		//printMapInfo();//打印map_game数组的值，用于调试bug
 		int type = type2;
 		//先不随机，让每次都下落L型方块，方便测试，之后再调成随机的-------------------------记得改回来
 		type2 = 1 + rand() % 5;

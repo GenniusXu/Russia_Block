@@ -8,8 +8,11 @@
 #include"saveAndRead.h"
 using namespace std;
 
-//输出map每个元素的值
+//输出map_game每个元素的值
 void printMapInfo();
 
 //打印二进制文件中的数据
 void printFileInfo(string player_arg);
+
+//插入排行榜数据并打印排行榜
+void insertAndPrintRankList();

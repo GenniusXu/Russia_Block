@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include<vector>
+#include<map>
 #include<SFML/Audio.hpp>
 using namespace std;
 
@@ -18,7 +19,17 @@ extern string player;
 extern string password;
 extern int score;
 extern int highestScore;
-extern vector<vector<int>>map;
+extern vector<vector<int>>map_game;
+
+//自定义分数排序方式
+struct ScoreComparator
+{
+    bool operator()(const pair<string, int> p1, const pair<string, int> p2) const
+    {
+        return p1.second > p2.second;  // 按分数降序排序
+    }
+};
+extern multimap<int, string, std::greater<int>>rankList;
 
 //------------------------------------以下是有关游戏参数、游戏按键的全局变量------------------------------
 

@@ -35,3 +35,9 @@ void savePlayerInfo();
 
 //从当前目录下的二进制文件PlayerInfoRecords_player.dat中读取玩家信息(player为当前玩家名)，若读取成功返回1，否则返回0
 bool readPlayerInfo(string player_arg, string password_arg);
+
+//保存排行榜信息
+void saveRankList();
+
+//读取排行榜信息
+void readRankList();

@@ -15,7 +15,7 @@ public:
 	void erase();//擦去方块
 	virtual void rotate();//方块旋转(利用多态，不同方块旋转不一样)
 	void showNextShape();//在信息区预告下一方块形状
-	void fixBlock();//将方块固定，并在map中标记
+	void fixBlock();//将方块固定，并在map_game中标记
 	bool reachEnd();//判断是否已经无法继续下落，无法继续下落就返回true
 	bool drop();//方块下落,如果还能下落返回true，如果已经不能继续下落返回false
 	void moveLeft();//方块左移1格
@@ -29,7 +29,7 @@ protected:
 	int blockWidth;//方块的横向长度（用于判断方块是否超出了游戏区）
 };
 
-//每次消掉了一行，都要重新根据map记录的值来更新方块的位置
+//每次消掉了一行，都要重新根据map_game记录的值来更新方块的位置
 void updateMap();
 
 //当一行填满，自动消掉一行，并让上方方块下落一行

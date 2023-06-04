@@ -69,7 +69,7 @@ void Block::showNextShape()
 
 }
 
-//将方块固定，并在map中标记
+//将方块固定，并在map_game中标记
 void Block::fixBlock()
 {
 	for (int i = 0; i < 4; i++)
@@ -79,8 +79,8 @@ void Block::fixBlock()
 			//该坐标有下落的方块
 			if (shape[i][j] == 1)
 			{
-				//将map中对应的坐标设置成下落方块的color值，表示这里已经有方块，且颜色为color
-				map[pos.Y + i][pos.X + 2 * j] = color;
+				//将map_game中对应的坐标设置成下落方块的color值，表示这里已经有方块，且颜色为color
+				map_game[pos.Y + i][pos.X + 2 * j] = color;
 			}
 		}
 	}
@@ -104,7 +104,7 @@ bool Block::reachEnd()
 			if (shape[i][j] == 1)
 			{
 				//下落的方块的下面一格已经有方块
-				if (map[pos.Y + i + 1][pos.X + 2 * j] != 0)
+				if (map_game[pos.Y + i + 1][pos.X + 2 * j] != 0)
 				{
 					fixBlock();
 					return true;
@@ -157,17 +157,17 @@ void Block::moveRight()
 	}
 }
 
-//每次消掉了一行，都要重新根据map记录的值来更新方块的位置
+//每次消掉了一行，都要重新根据map_game记录的值来更新方块的位置
 void updateMap()
 {
-	for (int i = 0; i < map.size() - 1; i++)
+	for (int i = 0; i < map_game.size() - 1; i++)
 	{
-		for (int j = 2; j < map[i].size() - 2; j += 2)
+		for (int j = 2; j < map_game[i].size() - 2; j += 2)
 		{
-			if (map[i][j] != 0)
+			if (map_game[i][j] != 0)
 			{
 				setpos(j,i);
-				setColorAttr(map[i][j]);
+				setColorAttr(map_game[i][j]);
 				cout << "■";
 				setColorAttr(37);
 			}
@@ -183,12 +183,12 @@ void updateMap()
 //当一行填满，自动消掉一行，并让上方方块下落一行
 void clearLine()
 {
-	for (int i = 0; i < map.size() - 1; i++)
+	for (int i = 0; i < map_game.size() - 1; i++)
 	{
 		int count = 0;
-		for (int j = 2; j < map[i].size() - 2; j += 2)
+		for (int j = 2; j < map_game[i].size() - 2; j += 2)
 		{
-			if (map[i][j] != 0)
+			if (map_game[i][j] != 0)
 			{
 				count++;
 			}
@@ -198,9 +198,9 @@ void clearLine()
 		{
 			for (int k = i; k >= 1; k--)
 			{
-				for (int m = 2; m < map[k].size() - 2; m += 2)
+				for (int m = 2; m < map_game[k].size() - 2; m += 2)
 				{
-					map[k][m] = map[k - 1][m];
+					map_game[k][m] = map_game[k - 1][m];
 				}
 			}
 			if (clearSoundEffect_isOpen)

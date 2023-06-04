@@ -28,7 +28,7 @@ void tellNextBlock(int type);//在信息区显示下一个方块的形状
 //判断游戏是否结束，如果结束返回true
 bool gameOver();
 
-//重置map，将它所有元素重置为0
+//重置map_game，将它所有元素重置为0
 void resetMap();
 
 //画警示线

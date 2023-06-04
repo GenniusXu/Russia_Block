@@ -15,7 +15,8 @@ string player = "玩家1";
 string password = "123456";
 int score = 0;
 int highestScore = 0;
-vector<vector<int> >map(playingArea_height, vector<int>(playingArea_width * 2, 0));//二维数组，数组下标对应棋盘坐标，一格就是一格,而且包括边框也算在map里面
+vector<vector<int> >map_game(playingArea_height, vector<int>(playingArea_width * 2, 0));//二维数组，数组下标对应棋盘坐标，一格就是一格,而且包括边框也算在map_game里面
+multimap<int, string, std::greater<int>>rankList;
 
 //------------------------------------以下是有关游戏参数、游戏按键的全局变量------------------------------
 

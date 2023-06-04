@@ -9,6 +9,7 @@ void createMenuOptions()
     options.push_back(Option("继续游戏", { menu_option_left_limit,menu_option_top_limit + 3, menu_option_left_limit + 18,menu_option_top_limit + 5 }));
     options.push_back(Option("游戏设置", { menu_option_left_limit,menu_option_top_limit + 6, menu_option_left_limit + 18,menu_option_top_limit + 8 }));
     options.push_back(Option("游戏帮助", { menu_option_left_limit,menu_option_top_limit + 9, menu_option_left_limit + 18,menu_option_top_limit + 11 }));
+    //options.push_back(Option("排行榜", { menu_option_left_limit,menu_option_top_limit + 12, menu_option_left_limit + 18,menu_option_top_limit + 14 }));
     options.push_back(Option("退出", { menu_option_left_limit,menu_option_top_limit + 12, menu_option_left_limit + 18,menu_option_top_limit + 14 }));
 }
 
@@ -27,12 +28,35 @@ void print_title()
     setColorAttr(40);
 }
 
+//打印排行榜信息
+void showRankList()
+{
+    short rankList_left_limit = getConsoleWidth() / 2 + 30;
+    short rankList_top_limit = getConsoleHeight() / 3 + 10;
+    readRankList();
+    setpos(rankList_left_limit + 8, rankList_top_limit - 3);
+    cout << "光荣榜";
+    setpos(rankList_left_limit, rankList_top_limit - 1);
+    cout << left << setw(10) << "名次" << left << setw(10) << "玩家名" << left << setw(10) << "分数" << endl;
+
+    int i = 1;
+    for (multimap<int, string, std::greater<int>>::iterator it = rankList.begin(); it != rankList.end(); it++, i++)
+    {
+        if (i <= 10)
+        {
+            setpos(rankList_left_limit, rankList_top_limit + i);
+            cout << left << setw(10) << i << left << setw(10) << it->second << left << setw(10) << it->first;
+        }
+    }
+}
+
 //显示主菜单界面
 void mainMenu()
 {
     print_title();
     createMenuOptions();
     drawOptions();
+    showRankList();
     while (1)
     {
         highLightOptions();

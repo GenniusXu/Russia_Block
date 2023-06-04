@@ -208,7 +208,7 @@ void clearLine()
 				PlayClearSoundEffect(clearSoundEffectPath);
 			}
 			updateMap();
-			score += 10;
+			score += 10 * speed;
 		}
 		
 	}

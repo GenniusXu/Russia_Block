@@ -254,7 +254,7 @@ void game()
 				}
 				else if (ch == 80 || ch == key_for_down)
 				{
-					speed = 30;
+					speed = 3 * tempSpeed;
 				}
 				else if (ch == 72 || ch == key_for_up)
 				{
@@ -278,6 +278,8 @@ void game()
 				{
 					system("cls");
 					savePlayerInfo();
+					rankList.insert(make_pair(score, player));
+					saveRankList();
 					stopBackgroundMusic();
 					mainMenu();
 					return;

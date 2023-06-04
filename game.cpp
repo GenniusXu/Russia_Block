@@ -210,8 +210,8 @@ void game()
 		//printMapInfo();//打印map_game数组的值，用于调试bug
 		int type = type2;
 		//先不随机，让每次都下落L型方块，方便测试，之后再调成随机的-------------------------记得改回来
-		//type2 = 1 + rand() % 5;
-		type2 = 2;
+		type2 = 1 + rand() % 5;
+		//type2 = 2;
 		//先指定每次都下落L型方块，方便测试，之后再调成随机的-------------------------记得改回来
 		tellNextBlock(type2);
 		if (type == 1)
@@ -255,7 +255,7 @@ void game()
 				}
 				else if (ch == 80 || ch == key_for_down)
 				{
-					speed = 3 * tempSpeed;
+					speed = 30;
 				}
 				else if (ch == 72 || ch == key_for_up)
 				{
@@ -273,7 +273,10 @@ void game()
 					system("pause");//请按任意键继续在这里
 					setpos(playingArea_width * 2 + 10, 2);
 					cout << "                                      ";//清除暂停提示信息
-					PlayBackgroundMusic(backgroundMusicPath);
+					if (backGroundMusic_isOpen)
+					{
+						PlayBackgroundMusic(backgroundMusicPath);
+					}
 				}
 				else if (ch == key_for_quit)
 				{
@@ -293,6 +296,8 @@ void game()
 	}
 	setpos(playingArea_width / 2, 3);
 	cout << "方块溢出，游戏结束！";
+	rankList.insert(make_pair(score, player));
+	saveRankList();
 	setpos(playingArea_width / 2, 4);
 	setpos(playingArea_width / 2, 4);
 	cout << "3秒后自动返回主菜单";

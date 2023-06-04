@@ -68,6 +68,8 @@ void showCurrentKeyInfo()
         cout << "นุ";
     }
     setpos(setting_option_left_limit2, setting_option_top_limit + 6);
+    cout << "         ";
+    setpos(setting_option_left_limit2, setting_option_top_limit + 6);
     cout << speed;
 }
 

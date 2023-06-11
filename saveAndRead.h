@@ -24,6 +24,20 @@ public:
 	//注意！！！！
 	//注意！！！！
 	//map必须为大小确定的二维数组，不能是vector，否则读取二进制文件时容易造成访问权限冲突（因为你的sizeof(PlayerInfo)不确定）
+
+	//下面是按键、音乐、速度等设置信息
+	int speed = 5;//方块下落速度（秒/格）
+	char key_for_up;//代替↑的按键
+	char key_for_down;//代替↓的按键
+	char key_for_left; //代替←的按键
+	char key_for_right;//代替→的按键
+	char key_for_rotate;//代替旋转j的按键
+	char key_for_pause;//代替暂停p的按键
+	char key_for_quit;//代替返回主菜单q的按键
+	bool backGroundMusic_isOpen = true;//记录背景音乐是否打开的变量
+	char backgroundMusicPath[60];//背景音乐文件路径
+	bool clearSoundEffect_isOpen = true;//记录背景音乐是否打开的变量
+	char clearSoundEffectPath[60];//背景音乐文件路径
 };
 
 

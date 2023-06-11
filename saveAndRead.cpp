@@ -17,6 +17,18 @@ void createPlayerInfo(string player, string password)
 			info.map[i][j] = 0;
 		}
 	}
+	info.speed = 5;//方块下落速度（秒/格）
+	info.key_for_up = 'w';//代替↑的按键
+	info.key_for_down = 's';//代替↓的按键
+	info.key_for_left = 'a'; //代替←的按键
+	info.key_for_right = 'd';//代替→的按键
+	info.key_for_rotate = 'j';//代替旋转j的按键
+	info.key_for_pause = 'p';//代替暂停p的按键
+	info.key_for_quit = 'q';//代替返回主菜单q的按键
+	info.backGroundMusic_isOpen = true;//记录背景音乐是否打开的变量
+	strcpy_s(info.backgroundMusicPath, "背景音乐.wav");//背景音乐文件路径
+	info.clearSoundEffect_isOpen = true;//记录背景音乐是否打开的变量
+	strcpy_s(info.clearSoundEffectPath, "消行音效.wav");//消行音效文件路径
 
 	//将PlayerInfo写入文件
 	ofstream f;
@@ -47,6 +59,18 @@ void savePlayerInfo()
 			info.map[i][j] = map_game[i][j];
 		}
 	}
+	info.speed = speed;//方块下落速度（秒/格）
+	info.key_for_up = key_for_up;//代替↑的按键
+	info.key_for_down = key_for_down;//代替↓的按键
+	info.key_for_left = key_for_left; //代替←的按键
+	info.key_for_right = key_for_right;//代替→的按键
+	info.key_for_rotate = key_for_rotate;//代替旋转j的按键
+	info.key_for_pause = key_for_pause;//代替暂停p的按键
+	info.key_for_quit = key_for_quit;//代替返回主菜单q的按键
+	info.backGroundMusic_isOpen = backGroundMusic_isOpen;//记录背景音乐是否打开的变量
+	strcpy_s(info.backgroundMusicPath, backgroundMusicPath.c_str());//背景音乐文件路径
+	info.clearSoundEffect_isOpen = clearSoundEffect_isOpen;//记录背景音乐是否打开的变量
+	strcpy_s(info.clearSoundEffectPath, clearSoundEffectPath.c_str());//消行音效文件路径
 
 	//将PlayerInfo写入文件
 	ofstream f;
@@ -90,6 +114,18 @@ bool readPlayerInfo(string player_arg, string password_arg)
 				map_game[i][j] = info.map[i][j];
 			}
 		}
+		speed = info.speed;//方块下落速度（秒/格）
+		key_for_up = info.key_for_up;//代替↑的按键
+		key_for_down = info.key_for_down;//代替↓的按键
+		key_for_left = info.key_for_left; //代替←的按键
+		key_for_right = info.key_for_right;//代替→的按键
+		key_for_rotate = info.key_for_rotate;//代替旋转j的按键
+		key_for_pause = info.key_for_pause;//代替暂停p的按键
+		key_for_quit = info.key_for_quit;//代替返回主菜单q的按键
+		backGroundMusic_isOpen = info.backGroundMusic_isOpen;//记录背景音乐是否打开的变量
+		backgroundMusicPath = info.backgroundMusicPath;//背景音乐文件路径
+		clearSoundEffect_isOpen = info.clearSoundEffect_isOpen;//记录背景音乐是否打开的变量
+		clearSoundEffectPath = info.clearSoundEffectPath;//背景音乐文件路径
 	}
 	else
 	{
@@ -112,9 +148,16 @@ void saveRankList()
 		ShowMessageBox("排行榜数据保存失败！");
 		return;
 	}
+	int i = 1;
 	for (const auto& pair : rankList) 
 	{
+		//只保存前十名的排行榜信息
+		if (i > 10)
+		{
+			break;
+		}
 		f << pair.second << " " << pair.first << "\n";
+		i++;
 	}
 	f.close();
 }

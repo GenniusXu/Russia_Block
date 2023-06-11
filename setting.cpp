@@ -214,11 +214,19 @@ void setting()
             }
             else if (opt == "方块下落速度")
             {
-                string s = GetDataFromWindow(L"请输入新的方块下落速度");
+                string s = GetDataFromWindow(L"请输入新的方块下落速度(1-20)");
                 if (s != "\0")
                 {
                     //将字符串转成int
-                    speed = stoi(s);
+                    int tempSpeed = stoi(s);
+                    if (tempSpeed <= 20 && 1 <= tempSpeed)
+                    {
+                        speed = tempSpeed;
+                    }
+                    else if (tempSpeed > 20)
+                    {
+                        speed = 20;
+                    }
                 }
             }
             else if (opt == "恢复默认设置")

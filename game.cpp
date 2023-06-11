@@ -255,7 +255,7 @@ void game()
 				}
 				else if (ch == 80 || ch == key_for_down)
 				{
-					speed = 30;
+					speed += 20;
 				}
 				else if (ch == 72 || ch == key_for_up)
 				{

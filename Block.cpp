@@ -63,12 +63,6 @@ void Block::rotate()
 
 }
 
-//在信息区预告下一方块形状
-void Block::showNextShape()
-{
-
-}
-
 //将方块固定，并在map_game中标记
 void Block::fixBlock()
 {

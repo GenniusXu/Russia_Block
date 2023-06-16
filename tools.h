@@ -61,7 +61,6 @@ enum ConsoleBackground : int;
 void setColorAttr(int attr);
 
 //调用后可以隐藏光标，等待输入时就不会一直有个东西在闪 
-//调用后可以隐藏光标，等待输入时就不会一直有个东西在闪 
 void HideCursor();        
 
 //调用后可以显示光标，等待输入时就会一直有个东西在闪 
@@ -82,6 +81,7 @@ void clearScreen();
 //将光标位置设置到当前鼠标所指位置，并返回当前光标位置COORD结构体
 COORD setCursorPosToMousePos();
 
+//获取光标位置
 COORD getCursorPos();
 
 

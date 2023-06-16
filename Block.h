@@ -14,7 +14,6 @@ public:
 	void show();//打印方块
 	void erase();//擦去方块
 	virtual void rotate();//方块旋转(利用多态，不同方块旋转不一样)
-	void showNextShape();//在信息区预告下一方块形状
 	void fixBlock();//将方块固定，并在map_game中标记
 	bool reachEnd();//判断是否已经无法继续下落，无法继续下落就返回true
 	bool drop();//方块下落,如果还能下落返回true，如果已经不能继续下落返回false

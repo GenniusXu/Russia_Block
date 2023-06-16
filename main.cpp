@@ -23,8 +23,8 @@ int main()
 	while (1)
 	{
 		//避免每次测试都要登录很麻烦，测试阶段先直接进到主菜单，之后再改回来
-		LoginAndRegister();
-		//mainMenu();
+		//LoginAndRegister();
+		mainMenu();
 	}
 	return 0;
 }

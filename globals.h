@@ -51,7 +51,7 @@ extern sf::SoundBuffer backgroundMusicBuffer;//背景音乐缓冲
 extern bool backGroundMusic_isOpen;//记录背景音乐是否打开的变量
 extern string backgroundMusicPath;//背景音乐文件路径
 
-extern sf::Sound clearSoundEffect;//背景音乐对象
-extern sf::SoundBuffer clearSoundEffectBuffer;//背景音乐缓冲
-extern bool clearSoundEffect_isOpen;//记录背景音乐是否打开的变量
-extern string clearSoundEffectPath;//背景音乐文件路径
+extern sf::Sound clearSoundEffect;//消行音效对象
+extern sf::SoundBuffer clearSoundEffectBuffer;//消行音效缓冲
+extern bool clearSoundEffect_isOpen;//记录消行音效是否打开的变量
+extern string clearSoundEffectPath;//消行音效文件路径

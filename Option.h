@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include"Tools.h"
 #include"Mouse.h"
 #include"globals.h"
@@ -33,5 +32,5 @@ void drawOptions();
 //遍历所有选项图标，如果鼠标的位置在图标区域，就highlight该图标
 void highLightOptions();
 
-//判断鼠标是否单击了某个选项，如果是，返回该选项的编号
+//判断鼠标是否单击了某个选项，如果是，返回该选项的名称
 string chooseOption();

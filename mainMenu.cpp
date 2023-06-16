@@ -68,6 +68,7 @@ void mainMenu()
                 options.clear();
                 clearScreen();
                 resetMap();
+                score = 0;
                 game();
                 break;
             }

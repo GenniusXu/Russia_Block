@@ -5,9 +5,11 @@
 #include"tools.h"
 #include"Block_I.h"
 #include"Block_L.h"
+#include"Block_L_opposite.h"
 #include"Block_Square.h"
 #include"Block_T.h"
 #include"Block_Z.h"
+#include"Block_Z_opposite.h"
 #include"testInformation.h"
 #include<random>
 #include"mainMenu.h"

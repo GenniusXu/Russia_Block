@@ -61,6 +61,12 @@
     <ClCompile Include="saveAndRead.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Block_L_opposite.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Block_Z_opposite.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h">
@@ -112,6 +118,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="saveAndRead.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Block_L_opposite.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Block_Z_opposite.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

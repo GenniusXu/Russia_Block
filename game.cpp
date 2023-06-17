@@ -110,7 +110,7 @@ void tellNextBlock(int type)
 		b.show();*/
 		setColorAttr(32);
 		setpos(playingArea_width * 2 + 10, 13);
-		cout << "■";
+		cout << "    ■";
 		setpos(playingArea_width * 2 + 10, 14);
 		cout << "■■■";
 		setColorAttr(37);
@@ -149,6 +149,30 @@ void tellNextBlock(int type)
 		cout << "■■";
 		setpos(playingArea_width * 2 + 10, 14);
 		cout << "  ■■";
+		setColorAttr(37);
+	}
+	else if (type == 6)
+	{
+		//不知道为什么这样显示不出来
+		/*Block_Z_opposite b(playingArea_width * 2 + 10, 13);
+		b.show();*/
+		setColorAttr(95);
+		setpos(playingArea_width * 2 + 10, 13);
+		 cout << "  ■■";
+		setpos(playingArea_width * 2 + 10, 14);
+		cout << "■■";
+		setColorAttr(37);
+	}
+	else if (type == 7)
+	{
+		//不知道为什么这样显示不出来
+		/*Block_L_opposite b(playingArea_width * 2 + 10, 13);
+		b.show();*/
+		setColorAttr(92);
+		setpos(playingArea_width * 2 + 10, 13);
+		cout << "■";
+		setpos(playingArea_width * 2 + 10, 14);
+		cout << "■■■";
 		setColorAttr(37);
 	}
 }
@@ -210,7 +234,11 @@ void game()
 		//printMapInfo();//打印map_game数组的值，用于调试bug
 		int type = type2;
 		//先不随机，让每次都下落L型方块，方便测试，之后再调成随机的-------------------------记得改回来
-		type2 = 1 + rand() % 5;
+		//如果下一个方块跟现在的方块是一样的，就重新生成一个，避免总是出现同一个方块的尴尬情况
+		do
+		{
+			type2 = 1 + rand() % 7;
+		} while (type2 == type);
 		//type2 = 2;
 		//先指定每次都下落L型方块，方便测试，之后再调成随机的-------------------------记得改回来
 		tellNextBlock(type2);
@@ -234,6 +262,15 @@ void game()
 		{
 			b = new Block_Z;
 		}
+		else if (type == 6)
+		{
+			b = new Block_Z_opposite;
+		}
+		else if (type == 7)
+		{
+			b = new Block_L_opposite;
+		}
+
 		//......(每加一种类型的方块，都在这里添加一个else if就行)
 
 		int tempSpeed = speed;//保存一下默认速度，用于加速后恢复初始速度

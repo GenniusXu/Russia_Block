@@ -23,6 +23,7 @@ void createSettingOptions()
     options.push_back(Option("背景音乐", { setting_option_left_limit2,setting_option_top_limit, setting_option_left_limit2 + 18,setting_option_top_limit +  2}));
     options.push_back(Option("消行音效", { setting_option_left_limit2,setting_option_top_limit + 3, setting_option_left_limit2 + 18,setting_option_top_limit +  5}));
     options.push_back(Option("方块下落速度", { setting_option_left_limit2,setting_option_top_limit + 6, setting_option_left_limit2 + 18,setting_option_top_limit + 8 }));
+    options.push_back(Option("自定义背景音乐", { setting_option_left_limit2,setting_option_top_limit + 9, setting_option_left_limit2 + 18,setting_option_top_limit + 11 }));
     
     options.push_back(Option("返回主菜单", { 2,30, 20,32 }));
     options.push_back(Option("恢复默认设置", { 22,30, 40,32 }));
@@ -71,6 +72,11 @@ void showCurrentKeyInfo()
     cout << "         ";
     setpos(setting_option_left_limit2, setting_option_top_limit + 6);
     cout << speed;
+    setpos(setting_option_left_limit2, setting_option_top_limit + 9);
+    cout << "                                                                                           ";
+    setpos(setting_option_left_limit2, setting_option_top_limit + 9);
+    cout << backgroundMusicPath;
+    
 }
 
 //检查按键设置是否有冲突，有就返回true，否则返回false，keyToCheck是被检测的按键
@@ -229,6 +235,21 @@ void setting()
                     }
                 }
             }
+            else if (opt == "自定义背景音乐")
+            {
+                string path = GetDataFromWindow(L"请输入本地背景音乐路径");
+                if (path == "\0")
+                {
+                    ShowMessageBox("路径不能为空！");
+                    continue;
+                }
+                else if (path.size() >= 80)
+                {
+                    ShowMessageBox("路径过长！");
+                    continue;
+                }
+                backgroundMusicPath = path;
+            }
             else if (opt == "恢复默认设置")
             {
                 key_for_up = 'w';//代替↑的按键
@@ -240,6 +261,8 @@ void setting()
                 key_for_quit = 'q';//代替返回主菜单q的按键
                 backGroundMusic_isOpen = true;
                 clearSoundEffect_isOpen = true;
+                backgroundMusicPath = "背景音乐.wav";
+                clearSoundEffectPath = "消行音效.wav";
                 speed = 5;
             }
             else if (opt == "返回主菜单")

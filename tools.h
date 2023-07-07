@@ -119,3 +119,6 @@ void stopBackgroundMusic();
 
 //（单次）（后台）（非阻塞）播放指定路径的消行音效
 void PlayClearSoundEffect(string path);
+
+//（单次）（后台）（非阻塞）播放指定路径的游戏失败音效
+void PlayGameOverSoundEffect(string path);

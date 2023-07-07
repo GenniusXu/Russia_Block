@@ -477,3 +477,19 @@ void PlayClearSoundEffect(string path)
     clearSoundEffect.setLoop(false);
     clearSoundEffect.play();
 }
+
+//（单次）（后台）（非阻塞）播放指定路径的游戏结束音效
+void PlayGameOverSoundEffect(string path)
+{
+    setpos(2 * playingArea_width + 10, 30);//把SFML自动输出的报错信息输出到信息区而不是游戏区
+    //注意，这里的backgroundMusic和backgroundMusicBuffer都是全局变量，否则没法用另一个函数停止播放
+    if (!GameOverSoundEffectBuffer.loadFromFile(path))
+    {
+        setpos(2 * playingArea_width + 10, 30);
+        std::cerr << "无法加载音乐文件：" << path << std::endl;
+        return;
+    }
+    GameOverSoundEffect.setBuffer(GameOverSoundEffectBuffer);
+    GameOverSoundEffect.setLoop(false);
+    GameOverSoundEffect.play();
+}

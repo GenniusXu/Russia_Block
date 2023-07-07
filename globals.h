@@ -55,3 +55,8 @@ extern sf::Sound clearSoundEffect;//消行音效对象
 extern sf::SoundBuffer clearSoundEffectBuffer;//消行音效缓冲
 extern bool clearSoundEffect_isOpen;//记录消行音效是否打开的变量
 extern string clearSoundEffectPath;//消行音效文件路径
+
+extern sf::Sound GameOverSoundEffect;//游戏结束音效对象
+extern sf::SoundBuffer GameOverSoundEffectBuffer;//游戏结束音效缓冲
+extern bool GameOverSoundEffect_isOpen;//记录游戏结束音效是否打开的变量
+extern string GameOverSoundEffectPath;//游戏结束音效文件路径

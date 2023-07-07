@@ -185,6 +185,8 @@ bool gameOver()
 		//从上往下数第五行有方块，说明已经满了，游戏结束
 		if (map_game[warnningLine_height][i] != 0)
 		{
+			stopBackgroundMusic();
+			PlayGameOverSoundEffect(GameOverSoundEffectPath);
 			return true;
 		}
 	}

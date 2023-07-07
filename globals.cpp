@@ -41,3 +41,8 @@ sf::Sound clearSoundEffect;//背景音乐对象
 sf::SoundBuffer clearSoundEffectBuffer;//背景音乐缓冲
 bool clearSoundEffect_isOpen = true;//记录背景音乐是否打开的变量
 string clearSoundEffectPath = "消行音效.wav";//背景音乐文件路径
+
+sf::Sound GameOverSoundEffect;//背景音乐对象
+sf::SoundBuffer GameOverSoundEffectBuffer;//背景音乐缓冲
+bool GameOverSoundEffect_isOpen = true;//记录背景音乐是否打开的变量
+string GameOverSoundEffectPath = "游戏结束音效.wav";//背景音乐文件路径

@@ -154,9 +154,11 @@ void Block::moveRight()
 //每次消掉了一行，都要重新根据map_game记录的值来更新方块的位置
 void updateMap()
 {
-	for (int i = 0; i < map_game.size() - 1; i++)
+	//for (int i = 0; i < map_game.size() - 1; i++)
+	for (int i = 0; i < playingArea_height - 1; i++)
 	{
-		for (int j = 2; j < map_game[i].size() - 2; j += 2)
+		//for (int j = 2; j < map_game[i].size() - 2; j += 2)
+		for (int j = 2; j < playingArea_width * 2 - 2; j += 2)
 		{
 			if (map_game[i][j] != 0)
 			{

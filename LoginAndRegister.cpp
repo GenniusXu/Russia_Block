@@ -38,7 +38,7 @@ void LoginAndRegister()
                     ShowMessageBox("用户名不能为空！");
                     continue;
                 }
-                password = GetDataFromWindow(L"请输入密码");
+                password = GetDataFromWindow(L"请设置密码");
                 if (password == "\0")
                 {
                     ShowMessageBox("密码不能为空！");

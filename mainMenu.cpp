@@ -50,6 +50,22 @@ void showRankList()
     }
 }
 
+//在游戏开始前，弹出两个窗口，让用户设置地图高度和宽度
+void setMapSizeByWindow()
+{
+    int height = stoi(GetDataFromWindow(L"请设置地图高度（20,37）"));
+    int width = stoi(GetDataFromWindow(L"请设置地图宽度（15,30）"));
+    //string height_string = GetDataFromWindow(L"请设置地图高度（20,37）");
+    while (height < 20 || height>37 || width < 10 || width>30)
+    {
+        ShowMessageBox("高度或宽度不符合要求！");
+        height = stoi(GetDataFromWindow(L"请设置地图高度（20,37）"));
+        width = stoi(GetDataFromWindow(L"请设置地图宽度（15,30）"));
+    }
+    playingArea_height = height;
+    playingArea_width = width;
+}
+
 //显示主菜单界面
 void mainMenu()
 {
@@ -68,6 +84,7 @@ void mainMenu()
                 options.clear();
                 clearScreen();
                 resetMap();
+                setMapSizeByWindow();
                 score = 0;
                 game();
                 break;

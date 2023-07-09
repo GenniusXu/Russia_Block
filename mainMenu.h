@@ -17,6 +17,9 @@ void print_title();
 //打印排行榜信息
 void showRankList();
 
+//在游戏开始前，弹出两个窗口，让用户设置地图高度和宽度
+void setMapSizeByWindow();
+
 //显示主菜单界面
 void mainMenu();
 

@@ -185,8 +185,6 @@ bool gameOver()
 		//从上往下数第五行有方块，说明已经满了，游戏结束
 		if (map_game[warnningLine_height][i] != 0)
 		{
-			stopBackgroundMusic();
-			PlayGameOverSoundEffect(GameOverSoundEffectPath);
 			return true;
 		}
 	}
@@ -333,16 +331,16 @@ void game()
 		delete b;
 		speed = tempSpeed;
 	}
-	setpos(playingArea_width / 2, 3);
+	stopBackgroundMusic();
+	PlayGameOverSoundEffect(GameOverSoundEffectPath);
+	setpos(playingArea_width / 2, 2);
 	cout << "方块溢出，游戏结束！";
 	rankList.insert(make_pair(score, player));
 	saveRankList();
-	setpos(playingArea_width / 2, 4);
-	setpos(playingArea_width / 2, 4);
+	setpos(playingArea_width / 2, 3);
 	cout << "3秒后自动返回主菜单";
 	Sleep(3000);
 	resetMap();//一定要，不然再次进入游戏时还没开始就结束了
 	clearScreen();
-	stopBackgroundMusic();
 	mainMenu();
 }

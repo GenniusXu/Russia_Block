@@ -20,11 +20,12 @@ void createSettingOptions()
 
     setpos(setting_option_left_limit2 + 3, setting_option_top_limit2 - 2);
     cout << "其他设置更改";
-    options.push_back(Option("背景音乐", { setting_option_left_limit2,setting_option_top_limit, setting_option_left_limit2 + 18,setting_option_top_limit +  2}));
-    options.push_back(Option("消行音效", { setting_option_left_limit2,setting_option_top_limit + 3, setting_option_left_limit2 + 18,setting_option_top_limit +  5}));
+    options.push_back(Option("背景音乐", { setting_option_left_limit2,setting_option_top_limit, setting_option_left_limit2 + 18,setting_option_top_limit + 2 }));
+    options.push_back(Option("消行音效", { setting_option_left_limit2,setting_option_top_limit + 3, setting_option_left_limit2 + 18,setting_option_top_limit + 5 }));
     options.push_back(Option("方块下落速度", { setting_option_left_limit2,setting_option_top_limit + 6, setting_option_left_limit2 + 18,setting_option_top_limit + 8 }));
     options.push_back(Option("自定义背景音乐", { setting_option_left_limit2,setting_option_top_limit + 9, setting_option_left_limit2 + 18,setting_option_top_limit + 11 }));
-    
+    options.push_back(Option("背景颜色", { setting_option_left_limit2,setting_option_top_limit + 12, setting_option_left_limit2 + 18,setting_option_top_limit + 14 }));
+
     options.push_back(Option("返回主菜单", { 2,30, 20,32 }));
     options.push_back(Option("恢复默认设置", { 22,30, 40,32 }));
 }
@@ -76,7 +77,18 @@ void showCurrentKeyInfo()
     cout << "                                                                                         ";
     setpos(setting_option_left_limit2, setting_option_top_limit + 9);
     cout << backgroundMusicPath;
-    
+    setpos(setting_option_left_limit2, setting_option_top_limit + 12);
+    if (backgroundColor == 49 || backgroundColor == 40)
+    {
+        cout << "默认";
+    }
+    else
+    {
+        setColorAttr(backgroundColor);
+        cout << "    ";
+        setColorAttr(49);
+    }
+
 }
 
 //检查按键设置是否有冲突，有就返回true，否则返回false，keyToCheck是被检测的按键
@@ -250,6 +262,29 @@ void setting()
                 }
                 backgroundMusicPath = path;
             }
+            else if (opt == "背景颜色")
+            {
+                //现在是黑色，点一下改成灰色
+                if (backgroundColor == 49 || backgroundColor == 40)
+                {
+                    backgroundColor = 100;
+                }
+                //现在是灰色，点一下改成亮青色
+                else if (backgroundColor == 100)
+                {
+                    backgroundColor = 106;
+                }
+                //现在是亮青色，点一下改成亮洋红色
+                else if (backgroundColor == 106)
+                {
+                    backgroundColor = 105;
+                }
+                //现在是亮洋红色，点一下改成亮黑色
+                else if (backgroundColor == 105)
+                {
+                    backgroundColor = 49;
+                }
+            }
             else if (opt == "恢复默认设置")
             {
                 key_for_up = 'w';//代替↑的按键
@@ -264,6 +299,7 @@ void setting()
                 backgroundMusicPath = "背景音乐.wav";
                 clearSoundEffectPath = "消行音效.wav";
                 speed = 5;
+                backgroundColor = 49;
             }
             else if (opt == "返回主菜单")
             {

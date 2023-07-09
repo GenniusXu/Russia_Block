@@ -12,6 +12,7 @@ extern int playingArea_height;
 extern int informationArea_width;
 extern int informationArea_height;
 extern int warnningLine_height;
+extern int backgroundColor;
 
 //------------------------------------以下是有关玩家信息的全局变量------------------------------
 

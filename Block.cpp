@@ -46,13 +46,16 @@ void Block::erase()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		
+
 		for (int j = 0; j < 4; j++)
 		{
 			if (shape[i][j] == 1)
 			{
 				setpos(pos.X + 2 * j, pos.Y + i);//因为x方向上一个方块占两个字符位置，所以加 2*j
+				//游戏背景色
+				setColorAttr(backgroundColor);
 				cout << "  ";
+				setColorAttr(49);
 			}
 		}
 	}
@@ -133,7 +136,7 @@ bool Block::drop()
 //方块左移1格
 void Block::moveLeft()
 {
-	if (pos.X -2 > 0)
+	if (pos.X - 2 > 0)
 	{
 		erase();
 		pos.X -= 2;//一个方块占两格
@@ -163,15 +166,19 @@ void updateMap()
 		{
 			if (map_game[i][j] != 0)
 			{
-				setpos(j,i);
+				setpos(j, i);
 				setColorAttr(map_game[i][j]);
 				cout << "■";
 				setColorAttr(37);
 			}
 			else
 			{
+				//游戏背景色
+				setColorAttr(backgroundColor);
 				setpos(j, i);
 				cout << "  ";
+				setColorAttr(49);
+				setColorAttr(37);
 			}
 		}
 	}
@@ -207,7 +214,7 @@ void clearLine()
 			updateMap();
 			score += 10 * speed;
 		}
-		
+
 	}
 }
 

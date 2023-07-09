@@ -30,6 +30,17 @@ void drawPlayingArea()
 	{
 		cout << "■";
 	}
+	//游戏背景色
+	setColorAttr(backgroundColor);
+	for (int i = 1; i < playingArea_height - 2; i++)
+	{
+		for (int j = 2; j < playingArea_width - 1; j++)
+		{
+			setpos(j, i);
+			cout << "  ";
+		}
+	}
+	setColorAttr(49);//换回正常的黑底白字
 }
 
 //画信息区
@@ -158,7 +169,7 @@ void tellNextBlock(int type)
 		b.show();*/
 		setColorAttr(95);
 		setpos(playingArea_width * 2 + 10, 13);
-		 cout << "  ■■";
+		cout << "  ■■";
 		setpos(playingArea_width * 2 + 10, 14);
 		cout << "■■";
 		setColorAttr(37);

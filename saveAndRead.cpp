@@ -10,6 +10,7 @@ void createPlayerInfo(string player, string password)
 	info.highestScore = 0;
 	info.height = playingArea_height;
 	info.width = playingArea_width;
+	info.backgroundColor = backgroundColor;
 	for (int i = 0; i < playingArea_height; i++)
 	{
 		for (int j = 0; j < playingArea_width * 2; j++)
@@ -52,6 +53,7 @@ void savePlayerInfo()
 	info.highestScore = highestScore;
 	info.height = playingArea_height;
 	info.width = playingArea_width;
+	info.backgroundColor = backgroundColor;
 	for (int i = 0; i < playingArea_height; i++)
 	{
 		for (int j = 0; j < playingArea_width * 2; j++)
@@ -107,6 +109,7 @@ bool readPlayerInfo(string player_arg, string password_arg)
 		highestScore = info.highestScore;
 		playingArea_height = info.height;
 		playingArea_width = info.width;
+		backgroundColor = info.backgroundColor;
 		for (int i = 0; i < playingArea_height; i++)
 		{
 			for (int j = 0; j < playingArea_width * 2; j++)
@@ -149,7 +152,7 @@ void saveRankList()
 		return;
 	}
 	int i = 1;
-	for (const auto& pair : rankList) 
+	for (const auto& pair : rankList)
 	{
 		//只保存前十名的排行榜信息
 		if (i > 10)

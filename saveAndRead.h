@@ -19,6 +19,7 @@ public:
 	int highestScore;//历史最高分
 	int height;//地图高度
 	int width;//地图宽度
+	int backgroundColor;
 	int map[37][60];//地图二维数组
 	//注意！！！！
 	//注意！！！！

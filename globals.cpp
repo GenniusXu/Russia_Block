@@ -8,6 +8,7 @@ int playingArea_height = 37;
 int informationArea_width = 20;
 int informationArea_height = 37;
 int warnningLine_height = 5;
+int backgroundColor = 49;//游戏区背景颜色，默认为黑色
 
 //------------------------------------以下是有关玩家信息的全局变量------------------------------
 

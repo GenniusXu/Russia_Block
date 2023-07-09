@@ -56,7 +56,7 @@ void setMapSizeByWindow()
     int height = stoi(GetDataFromWindow(L"请设置地图高度（20,37）"));
     int width = stoi(GetDataFromWindow(L"请设置地图宽度（15,30）"));
     //string height_string = GetDataFromWindow(L"请设置地图高度（20,37）");
-    while (height < 20 || height>37 || width < 10 || width>30)
+    while (height < 20 || height > 37 || width < 15 || width > 30)
     {
         ShowMessageBox("高度或宽度不符合要求！");
         height = stoi(GetDataFromWindow(L"请设置地图高度（20,37）"));

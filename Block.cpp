@@ -11,7 +11,8 @@ int Block::nextShape[4][4] =
 //无参构造函数，方块初始位置为游戏区上方中间位置
 Block::Block()
 {
-	pos.X = playingArea_width - 2;
+	//如果用户设置的宽度是偶数，则后面加0；如果为奇数，后面加1。否则用户输入宽度为奇数时，会导致方块会擦掉左边界的一半
+	pos.X = playingArea_width - 2 + playingArea_width % 2;
 	pos.Y = 1;
 }
 
